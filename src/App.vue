@@ -13,6 +13,9 @@
         font-family: 'Poppins', sans-serif;
         color: darkslategray;
         font-weight: 300;
+        margin: 0;
+        border: 0;
+        box-sizing: border-box;
     }
 
     .section-views {

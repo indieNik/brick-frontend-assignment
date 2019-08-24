@@ -61,7 +61,6 @@ router.beforeEach((to, from, next) => {
 			})
 		} else {
 			let user = JSON.parse(localStorage.getItem('isLoggedInUser'))
-			console.log("Logged in User: ", user)
 			next()
 		}
 	}

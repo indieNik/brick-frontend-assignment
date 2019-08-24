@@ -1,5 +1,5 @@
 <template>
-   <img src="this.srcStr" @click="highlight">
+   <img @click="highlight">
 </template>
 
 <style lang="scss">
@@ -17,10 +17,9 @@
         },
         methods: {
             highlight: function(e) {
-                console.log(e);
-                console.log(e.target);
                 this.resetImageBorders();
                 e.target.classList.add('active');
+                this.$emit('imageClicked', e.target.id);
             },
             resetImageBorders: function() {
                 let activeElems = document.getElementsByClassName("item active");

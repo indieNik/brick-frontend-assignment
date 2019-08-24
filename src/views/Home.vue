@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 	<div class="container">
-		<ImageSlot v-for="imageObj in listOfImages" class="item" :id="imageObj.id" :src="imageObj.url" :height="Math.floor(Math.random() * 5) + 1 + '00px'"/>
+		<ImageSlot @imageClicked="navigate" v-for="imageObj in listOfImages" class="item" :id="imageObj.id" :src="imageObj.url" :height="Math.floor(Math.random() * 5) + 1 + '00px'"/>
 	</div>
   </div>
 </template>
@@ -70,51 +70,65 @@ export default {
 					// get body data
 					this.listOfImages = [
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 1
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 2
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 3
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 4
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 5
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 6
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 7
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 8
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 9
 						},
 						{
-							url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							// url: "https://farm66.staticflickr.com/65535/46748151375_f0efa27a10.jpg",
+							url: "https://source.unsplash.com/random",
 							id: 10
 						}
 					]
-					console.log("Success: ", this.listOfImages);
+					// console.log("Success: ", this.listOfImages);
 
 				}, response => {
-					console.error("Error: ", response);
+					// console.error("Error: ", response);
 				});
+		},
+
+		navigate: function(val) {
+			// Change the URL here with val
 		}
     },
     mounted: function () {

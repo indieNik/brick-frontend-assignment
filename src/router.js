@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Auth from './views/Auth.vue'
+import PageNotFound from './views/PageNotFound.vue'
+import Logout from './views/Logout.vue'
 
 Vue.use(Router)
 
@@ -13,7 +15,7 @@ let router = new Router({
       meta: { 
         requiresAuth: true
       },
-      component: () => import('./views/Home.vue')
+      component: Home
     },
     {
       path: '/auth',
@@ -21,14 +23,36 @@ let router = new Router({
       meta: { 
         guest: true
       },
-      component: () => import('./views/Auth.vue')
+      component: Auth
+    },
+    {
+      path: '/logout',
+	  name: 'logout',
+	  component: Logout
+    },
+    {
+      path: '*',
+      name: 'error404',
+      meta: { 
+        guest: true
+      },
+      component: PageNotFound
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-	console.log("to: ", to);
-	console.log("from: ", from);
+	if(to.path === "/logout") {
+		if (localStorage.getItem('isLoggedIn') == null) {
+			next({
+				path: '/auth',
+				params: { nextUrl: to.fullPath }
+			})
+		} else {
+			localStorage.removeItem('isLoggedIn')
+			localStorage.removeItem('isLoggedInUser')
+		}
+	}
 	if(to.matched.some(record => record.meta.requiresAuth)) {
 		if (localStorage.getItem('isLoggedIn') == null) {
 			next({

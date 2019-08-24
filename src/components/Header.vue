@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <router-link to="/">Home</router-link>
-        <router-link v-if="user" to="/logout">{{user}}</router-link>
+        <router-link v-if="userIsLoggedIn" to="/logout">Logout</router-link>
         <router-link v-else to="/auth">Login/Sign up</router-link>
     </div>
 </template>
@@ -31,7 +31,8 @@
     export default {
         data(){
             return {
-                user: localStorage.getItem('isLoggedIn')
+                userIsLoggedIn: localStorage.getItem('isLoggedIn'),
+                reactive: true
             }
         }
     }

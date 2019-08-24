@@ -1,9 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header />
+    <div class="section-views">
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
+
+<style lang="scss">
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600');
+    * {
+        font-family: 'Poppins', sans-serif;
+        color: darkslategray;
+        font-weight: 300;
+    }
+
+    .section-views {
+        margin-top: 70px;
+    }
+</style>
+<script>
+// @ is an alias to /src
+import Header from '@/components/Header.vue'
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
